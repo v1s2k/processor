@@ -8,7 +8,7 @@ def commands(index):
     global R1, R2, R3
 
     command = cmem[index]
-    match command["type"]:
+    match command["operation"]:
         case "mov":  # С помощью этой команды можно переместить значение из ИСТОЧНИКА в ПРИЁМНИК.
             # То есть по сути команда MOV копирует содержимое ИСТОЧНИКА и помещает это содержимое в ПРИЁМНИК.
             match command["arg1"]:
@@ -101,21 +101,19 @@ def execute():
         print("Memory:", cmem)
         commands(index)
 
-
         max_value = max(R1, R2, R3)
 
         index += 1
 
-
     print("Maximum Value:", max_value)
 
 
-cmem = [{"type": "mov", "arg1": "R1", "arg2": 10}, {"type": "mov", "arg1": "R2", "arg2": 5},
-        {"type": "add", "arg1": "R3", "arg2": 10}, {"type": "add", "arg1": "R1", "arg2": 3},
-        {"type": "add", "arg1": "R2", "arg2": 2},
-        {"type": "sub", "arg1": "R1", "arg2": 2}, {"type": "sub", "arg1": "R2", "arg2": 1},
-        {"type": "mul", "arg1": "R1", "arg2": 2}, {"type": "mul", "arg1": "R2", "arg2": 3},
-        {"type": "div", "arg1": "R1", "arg2": 4}, {"type": "div", "arg1": "R2", "arg2": 2},
-        {"type": "mul", "arg1": "R1", "arg2": 50}, {"type": "mul", "arg1": "R1", "arg2": 50}]
+cmem = [{"operation": "mov", "arg1": "R1", "arg2": 10}, {"operation": "mov", "arg1": "R2", "arg2": 5},
+        {"operation": "add", "arg1": "R3", "arg2": 10}, {"operation": "add", "arg1": "R1", "arg2": 3},
+        {"operation": "add", "arg1": "R2", "arg2": 2},
+        {"operation": "sub", "arg1": "R1", "arg2": 2}, {"operation": "sub", "arg1": "R2", "arg2": 1},
+        {"operation": "mul", "arg1": "R1", "arg2": 2}, {"operation": "mul", "arg1": "R2", "arg2": 3},
+        {"operation": "div", "arg1": "R1", "arg2": 4}, {"operation": "div", "arg1": "R2", "arg2": 2},
+        {"operation": "mul", "arg1": "R1", "arg2": 50}, {"operation": "mul", "arg1": "R1", "arg2": 50}]
 
 execute()
