@@ -98,7 +98,8 @@ def execute():
         print(f'Команда № {index + 1}')
         print("Операция:", cmem[index])
         print("Значение регистров : R1 =", R1, "R2 =", R2, "R3 =", R3)
-        print("Состояние памяти:", cmem)
+        print('Cумма значений всех регистров',R1+R2+R3)
+        print("Состояние памяти:", cmem,'\n')
         commands(index)
 
         max_value = max(R1, R2, R3)
@@ -124,6 +125,6 @@ cmem = [{"operation": "mov", "arg1": "R1", "arg2": 10}, {"operation": "mov", "ar
         {"operation": "mul", "arg1": "R1", "arg2": 50}, {"operation": "mul", "arg1": "R1", "arg2": 50}]
 
 execute()
-register_sum = R1+R2+R3
-print("Sum of Registers", register_sum)
+
+# print("Sum of Registers", R1+R2+R3)
 
