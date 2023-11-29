@@ -9,8 +9,8 @@ def commands(index):
 
     command = cmem[index]
     match command["operation"]:
-        case "mov":  # С помощью этой команды можно переместить значение из ИСТОЧНИКА в ПРИЁМНИК.
-            # То есть по сути команда MOV копирует содержимое ИСТОЧНИКА и помещает это содержимое в ПРИЁМНИК.
+        case "mov":  # Регистр пересылки ИСТОЧНИКА в ПРИЁМНИК.
+
             match command["arg1"]:
                 case "R1":
                     R1 = command["arg2"]
@@ -51,8 +51,7 @@ def commands(index):
                 case "R3":
                     R3 /= command["arg2"]
 
-    # if command["type"] == "mov":  # С помощью этой команды можно переместить значение из ИСТОЧНИКА в ПРИЁМНИК.
-    #     # То есть по сути команда MOV копирует содержимое ИСТОЧНИКА и помещает это содержимое в ПРИЁМНИК.
+    # if command["type"] == "mov":
     #     if command["arg1"] == "R1":
     #         R1 = command["arg2"]
     #     elif command["arg1"] == "R2":
